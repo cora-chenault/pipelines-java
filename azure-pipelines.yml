@@ -11,6 +11,7 @@ pool:
 
 variables:
   imageName: 'pipelines-java'
+  dockerRegistryServiceConnection: 'cora-test-acr'
 
 steps:
   - task: Docker@2
@@ -18,4 +19,5 @@ steps:
     inputs:
       repository: $(imageName)
       command: build
-      Dockerfile: Dockerfile
+      dockerfile: Dockerfile
+      containerRegistry: $(dockerRegistryServiceConnection)
